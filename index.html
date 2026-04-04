@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI / 软件工程师作品集 — 技术栈、精选项目、在线 Demo 与博客"
+    />
+    <title>Portfolio · AI & Software Engineer</title>
+    <style>
+      :root {
+        --bg: #0c0f14;
+        --surface: #141a22;
+        --surface-hover: #1a222d;
+        --text: #e6edf3;
+        --muted: #8b9cb0;
+        --accent: #58a6ff;
+        --accent-2: #a371f7;
+        --accent-soft: rgba(88, 166, 255, 0.12);
+        --border: rgba(255, 255, 255, 0.08);
+        --radius: 14px;
+        --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          "Noto Sans SC", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: var(--font);
+        background: radial-gradient(ellipse 100% 60% at 50% -15%, #1a2d42 0%, var(--bg) 50%);
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .site-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .brand:hover {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      .site-nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .site-nav a:hover {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .hero {
+        margin-bottom: 3.5rem;
+      }
+
+      .hero-kicker {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        margin: 0 0 0.75rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.85rem, 5vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+
+      .hero-lead {
+        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 52ch;
+        margin: 0 0 1.5rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.55rem 1.15rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: 1px solid transparent;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #0c0f14;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.08);
+      }
+
+      .btn-ghost {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: rgba(88, 166, 255, 0.35);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(88, 166, 255, 0.2);
+      }
+
+      .demo-body .btn {
+        align-self: flex-start;
+      }
+
+      section {
+        margin-bottom: 3.25rem;
+        scroll-margin-top: 1.25rem;
+      }
+
+      .section-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .section-head h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: var(--text);
+      }
+
+      .section-head p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--muted);
+        max-width: 42ch;
+      }
+
+      .eyebrow {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.35rem;
+      }
+
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.15rem 1.25rem;
+      }
+
+      .skill-card h3 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin: 0 0 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .tag {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .project-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .project-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.35rem 1.5rem;
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+
+      .project-card:hover {
+        border-color: rgba(88, 166, 255, 0.25);
+        background: var(--surface-hover);
+      }
+
+      .project-card h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .project-card .desc {
+        font-size: 0.925rem;
+        color: var(--muted);
+        margin: 0 0 1rem;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .project-meta .tags {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .meta-links a {
+        white-space: nowrap;
+      }
+
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .demo-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .demo-preview {
+        aspect-ratio: 16 / 10;
+        background: linear-gradient(145deg, #1c2632 0%, #0f1419 100%);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .demo-body {
+        padding: 1.15rem 1.25rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .demo-body h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0 0 0.4rem;
+      }
+
+      .demo-body p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0 0 1rem;
+        flex: 1;
+      }
+
+      .blog-list {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--surface);
+      }
+
+      .blog-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.35rem 1.25rem;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.12s ease;
+      }
+
+      .blog-item:last-child {
+        border-bottom: none;
+      }
+
+      .blog-item:hover {
+        background: var(--surface-hover);
+        text-decoration: none;
+      }
+
+      .blog-item time {
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        min-width: 6.5rem;
+      }
+
+      .blog-item span.title {
+        font-weight: 500;
+        color: var(--accent);
+      }
+
+      .blog-item:hover span.title {
+        text-decoration: underline;
+      }
+
+      .contact-bar {
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .contact-bar .links-inline a {
+        margin-right: 1rem;
+      }
+
+      footer {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a class="brand" href="#">Your Name</a>
+        <nav class="site-nav" aria-label="页面导航">
+          <a href="#skills">技术栈</a>
+          <a href="#projects">项目</a>
+          <a href="#demos">Demo</a>
+          <a href="#blog">Blog</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="hero-kicker">AI / Software Developer</p>
+        <h1 id="hero-title">构建可靠的智能系统与生产级软件</h1>
+        <p class="hero-lead">
+          专注于计算机视觉、机器学习工程、LLM 应用与全栈交付：从实验到部署，注重可观测性、性能与可维护性。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="15535700136@163.com">个人邮箱</a>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/cupofbx"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+          <a class="btn btn-ghost" href="#" rel="noopener noreferrer">简历 PDF</a>
+        </div>
+      </section>
+
+      <main>
+        <section id="skills" aria-labelledby="skills-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Core stack</p>
+              <h2 id="skills-title">核心技术栈</h2>
+            </div>
+            <p>按领域归纳常用工具，便于快速对齐技术边界。</p>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <h3>语言</h3>
+              <div class="tags" role="list">
+                <span class="tag" role="listitem">Python</span>
+                <span class="tag" role="listitem">JavaScript</span>
+                <span class="tag" role="listitem">MySQL</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>AI / ML</h3>
+              <div class="tags" role="list">
+                <span class="tag" role="listitem">PyTorch</span>
+                <span class="tag" role="listitem">Transformers</span>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Selected work</p>
+              <h2 id="projects-title">精选项目</h2>
+            </div>
+            <p>业务价值与技术难点；每个项目附可验证链接（代码或线上环境）。</p>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>企业级 RAG 问答平台</h3>
+              <p class="desc">
+                多租户文档接入、混合检索与重排序、引用溯源与审计日志；支持流式输出与权限隔离，已在内部落地并服务数千次查询/日。
+              </p>
+              <div class="project-meta">
+                <div class="tags" aria-label="技术标签">
+                  <span class="tag">Python</span>
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">向量库</span>
+                  <span class="tag">LLM</span>
+                </div>
+                <div class="meta-links">
+                  <a href="#" rel="noopener noreferrer">Code</a>
+                  <a href="#" rel="noopener noreferrer">Case study</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>模型服务与推理网关</h3>
+              <p class="desc">
+                统一 OpenAI 兼容 API、限流与配额、多模型路由与降级策略；集成 Prometheus 指标与结构化日志，便于 SRE 运维。
+              </p>
+              <div class="project-meta">
+                <div class="tags" aria-label="技术标签">
+                  <span class="tag">Go</span>
+                  <span class="tag">gRPC</span>
+                  <span class="tag">K8s</span>
+                  <span class="tag">GPU</span>
+                </div>
+                <div class="meta-links">
+                  <a href="#" rel="noopener noreferrer">Code</a>
+                  <a href="#" rel="noopener noreferrer">Architecture</a>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>全栈 SaaS 功能模块</h3>
+              <p class="desc">
+                从设计系统到鉴权计费的全链路实现；强调类型安全、E2E 测试与可访问性，缩短从需求到上线的周期。
+              </p>
+              <div class="project-meta">
+                <div class="tags" aria-label="技术标签">
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Stripe</span>
+                </div>
+                <div class="meta-links">
+                  <a href="#" rel="noopener noreferrer">Live</a>
+                  <a href="#" rel="noopener noreferrer">Code</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="demos" aria-labelledby="demos-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Live demos</p>
+              <h2 id="demos-title">Demo</h2>
+            </div>
+            <p>可交互或录屏演示，证明「能跑」且体验达标；下方为版式占位，可替换为 iframe 或外链。</p>
+          </div>
+          <div class="demo-grid">
+            <article class="demo-card">
+              <div class="demo-preview" aria-hidden="true">Preview · 嵌入或截图</div>
+              <div class="demo-body">
+                <h3>对话式 Agent Demo</h3>
+                <p>工具调用、会话状态与错误恢复的可视化演示。</p>
+                <a class="btn btn-ghost" href="#">打开 Demo</a>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="demo-preview" aria-hidden="true">Preview · 嵌入或截图</div>
+              <div class="demo-body">
+                <h3>实时推理延迟面板</h3>
+                <p>展示 P50/P99 与吞吐，可接你的监控或模拟数据。</p>
+                <a class="btn btn-ghost" href="#">打开 Demo</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="blog" aria-labelledby="blog-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Writing</p>
+              <h2 id="blog-title">Blog</h2>
+            </div>
+            <p>技术笔记、复盘与标准写法；链接可指向独立博客或 Medium / 掘金等。</p>
+          </div>
+          <div class="blog-list" role="list">
+            <a class="blog-item" href="#" role="listitem">
+              <time datetime="2026-03-15">2026-03-15</time>
+              <span class="title">在生产环境落地 RAG：检索质量与成本的权衡</span>
+            </a>
+            <a class="blog-item" href="#" role="listitem">
+              <time datetime="2026-02-02">2026-02-02</time>
+              <span class="title">从 Notebook 到服务：ML 工程化检查清单</span>
+            </a>
+            <a class="blog-item" href="#" role="listitem">
+              <time datetime="2026-01-10">2026-01-10</time>
+              <span class="title">TypeScript 在大型前端仓库中的边界实践</span>
+            </a>
+          </div>
+        </section>
+
+        <div class="contact-bar">
+          <span>联系：</span>
+          <span class="links-inline">
+            <a href="mailto:you@example.com">you@example.com</a>
+            <a href="https://www.linkedin.com/" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/" rel="noopener noreferrer">GitHub</a>
+          </span>
+        </div>
+      </main>
+
+      <footer>
+        <p>© <span id="year"></span> Your Name · Engineer Portfolio</p>
+      </footer>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
