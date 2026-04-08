@@ -5,6 +5,261 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
+      content="AI / 软件工程师作品集 — 个人信息、学历、技术栈、项目/实习/Demo、博客与绘画"
+    />
+    <title>Shaoqi Zhang · AI/Software Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top">Shaoqi Zhang</a>
+        <nav class="site-nav" aria-label="页面导航">
+          <a href="#about">个人信息</a>
+          <a href="#education">学历</a>
+          <a href="#skills">技术栈</a>
+          <a href="#experience">项目/实习/Demo</a>
+          <a href="#blog">博客</a>
+          <a href="#art">绘画</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="kicker">Camp × Black Paintings</p>
+        <h1 id="hero-title">AI / Software Engineer</h1>
+        <p class="lead">
+          我把工程的秩序与艺术的情绪放在同一个页面里：可落地的 AI 系统、可靠的软件交付，以及持续的学习与创作。
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:15535700136@163.com">Email</a>
+          <a class="btn ghost" href="https://github.com/cupofbx" rel="noopener noreferrer"
+            >GitHub</a
+          >
+          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
+        </div>
+        <div class="micro" aria-label="快速标签">
+          <span class="pill">Focus · LLM Apps / Backend / Full-stack</span>
+          <span class="pill">Open to · Intern / Full-time</span>
+          <span class="pill">Location · China</span>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <header class="section-head">
+          <h2 id="about-title">个人信息</h2>
+          <p>内容保持专业可读；风格交给 CSS 去“戏剧化”。</p>
+        </header>
+        <div class="grid two">
+          <article class="panel">
+            <h3>简介</h3>
+            <p>
+              用 3–5 句话替换这里：你擅长的方向、做过的系统、工程方法论、以及你正在寻找的机会/合作类型。
+            </p>
+          </article>
+          <article class="panel">
+            <h3>联系</h3>
+            <ul class="list">
+              <li>
+                <span class="label">Email</span
+                ><a href="mailto:15535700136@163.com">15535700136@163.com</a>
+              </li>
+              <li>
+                <span class="label">GitHub</span
+                ><a href="https://github.com/cupofbx" rel="noopener noreferrer"
+                  >github.com/cupofbx</a
+                >
+              </li>
+              <li>
+                <span class="label">LinkedIn</span
+                ><a href="https://www.linkedin.com/" rel="noopener noreferrer"
+                  >linkedin.com/in/your-id</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" aria-labelledby="edu-title">
+        <header class="section-head">
+          <h2 id="edu-title">学历</h2>
+          <p>学校/专业/时间/课程或科研方向（可选）。</p>
+        </header>
+        <article class="panel timeline-item">
+          <div class="timeline">
+            <div class="time">20XX — 20XX</div>
+            <div class="content">
+              <h3>学校名称 · 专业（学位）</h3>
+              <p class="muted">亮点：奖项/课程/科研方向（可选）。</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <header class="section-head">
+          <h2 id="skills-title">技术栈</h2>
+          <p>按领域分组，招聘方能快速判断你的“可交付范围”。</p>
+        </header>
+        <div class="grid three">
+          <article class="panel">
+            <h3>语言</h3>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Go</span
+              ><span class="tag">SQL</span>
+            </div>
+          </article>
+          <article class="panel">
+            <h3>AI / LLM</h3>
+            <div class="tags">
+              <span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">RAG</span
+              ><span class="tag">Vector DB</span><span class="tag">Agent</span>
+            </div>
+          </article>
+          <article class="panel">
+            <h3>工程与平台</h3>
+            <div class="tags">
+              <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span
+              ><span class="tag">Docker</span><span class="tag">CI/CD</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="exp-title">
+        <header class="section-head">
+          <h2 id="exp-title">项目 & 工作/实习经历 & Demo</h2>
+          <p>建议用“结果 + 规模 + 责任”写法，并给出可验证链接。</p>
+        </header>
+
+        <div class="grid two">
+          <article class="panel card">
+            <header class="card-head">
+              <h3>项目：RAG / Knowledge QA 平台</h3>
+              <p class="muted">角色：Backend / ML Engineer · 20XX</p>
+            </header>
+            <ul class="bullets">
+              <li>文档接入、清洗与分块策略；支持权限与引用溯源。</li>
+              <li>混合检索 + 重排序；优化质量与延迟。</li>
+              <li>以日志/指标验证效果并迭代。</li>
+            </ul>
+            <div class="card-links">
+              <a href="#" rel="noopener noreferrer">Code</a>
+              <a href="#" rel="noopener noreferrer">Case Study</a>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Vector Search</span
+              ><span class="tag">LLM</span>
+            </div>
+          </article>
+
+          <article class="panel card">
+            <header class="card-head">
+              <h3>实习：XXX 公司 · 软件工程</h3>
+              <p class="muted">方向：服务端 / 全栈 · 20XX</p>
+            </header>
+            <ul class="bullets">
+              <li>交付核心业务功能模块；引入测试与质量门禁。</li>
+              <li>定位性能瓶颈并优化关键接口延迟。</li>
+              <li>跨团队协作推动需求闭环。</li>
+            </ul>
+            <div class="card-links">
+              <a href="#" rel="noopener noreferrer">Overview</a>
+              <a href="#" rel="noopener noreferrer">Demo</a>
+            </div>
+            <div class="tags">
+              <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Observability</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="panel demos">
+          <h3>Demo 展示</h3>
+          <div class="grid three">
+            <a class="demo-tile" href="#" rel="noopener noreferrer">
+              <span class="demo-title">Agent 工具调用</span>
+              <span class="demo-sub">可视化链路与错误恢复</span>
+            </a>
+            <a class="demo-tile" href="#" rel="noopener noreferrer">
+              <span class="demo-title">RAG 检索评估</span>
+              <span class="demo-sub">质量指标与回归对比</span>
+            </a>
+            <a class="demo-tile" href="#" rel="noopener noreferrer">
+              <span class="demo-title">性能面板</span>
+              <span class="demo-sub">P50/P99、吞吐、成本</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" aria-labelledby="blog-title">
+        <header class="section-head">
+          <h2 id="blog-title">技术学习博客</h2>
+          <p>把学习写成可复用的工程经验：清单、权衡、复盘。</p>
+        </header>
+        <div class="panel">
+          <ol class="post-list">
+            <li>
+              <a href="#" rel="noopener noreferrer">在生产环境落地 RAG：质量、延迟与成本的三角平衡</a>
+              <span class="muted">· 2026-03-15</span>
+            </li>
+            <li>
+              <a href="#" rel="noopener noreferrer">从 Notebook 到服务：ML 工程化检查清单</a>
+              <span class="muted">· 2026-02-02</span>
+            </li>
+            <li>
+              <a href="#" rel="noopener noreferrer">TypeScript 大仓实践：边界、类型与可维护性</a>
+              <span class="muted">· 2026-01-10</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="art" aria-labelledby="art-title">
+        <header class="section-head">
+          <h2 id="art-title">个人绘画展示</h2>
+          <p>建议把你的作品图放在 `assets/art/`，然后把下方占位块替换成 `<img>`。</p>
+        </header>
+        <div class="grid three gallery">
+          <figure class="frame">
+            <div class="art-placeholder" aria-hidden="true">Artwork 01</div>
+            <figcaption>作品标题 / 材料 / 年份</figcaption>
+          </figure>
+          <figure class="frame">
+            <div class="art-placeholder" aria-hidden="true">Artwork 02</div>
+            <figcaption>作品标题 / 材料 / 年份</figcaption>
+          </figure>
+          <figure class="frame">
+            <div class="art-placeholder" aria-hidden="true">Artwork 03</div>
+            <figcaption>作品标题 / 材料 / 年份</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>© <span id="year"></span> Shaoqi Zhang · AI/Software Engineer</p>
+          <p class="muted">内容与风格分离：你只需要改 `styles.css` 即可换整站气质。</p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
       content="AI / 软件工程师作品集 — 技术栈、项目、Demo 与博客"
     />
     <title>Portfolio · AI & Software Engineer</title>
