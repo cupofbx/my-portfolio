@@ -31,7 +31,7 @@
       <section class="hero" aria-labelledby="hero-title">
         <p class="kicker">Camp × Black Paintings</p>
         <h1 id="hero-title">AI / Software Developer</h1>
-        <div class="lead" style="max-width: 950px; margin-inline: auto; text-align: left;">
+        <div class="lead" style="max-width: 950px; margin-inline: auto; text-align: left; padding-left: 1.2em;">
           Final Year Student specializing in AI Engineering and Software Development. With research experience in Image Restoration and data engineering at BAAFS, I bridge the gap between complex algorithms and practical applications.
           Also enjoys digital painting, preferring the style of camp + dark art.<br>
           应届毕业生，持续学习 AI 工程与开发。具备图像修复算法研究及农科院数据工程经验，擅长将复杂算法转化为实际应用。
@@ -150,46 +150,94 @@
       <section id="experience" aria-labelledby="exp-title">
         <header class="section-head">
           <h2 id="exp-title">项目 & 工作/实习经历 & Demo</h2>
-          <p>建议用“结果 + 规模 + 责任”写法，并给出可验证链接。</p>
+          <p>project & work/intern experience &demo</p>
         </header>
 
-        <div class="grid two">
+        <div class="project-list">
           <article class="panel card">
             <header class="card-head">
-              <h3>项目：RAG / Knowledge QA 平台</h3>
-              <p class="muted">角色：Backend / ML Engineer · 20XX</p>
+              <h3>项目：课程作业 - 公益支持平台前端搭建（微信小程序）</h3>
+              <p class="muted">角色：代码整合及登陆界面开发组员 · 2022</p>
             </header>
-            <ul class="bullets">
-              <li>文档接入、清洗与分块策略；支持权限与引用溯源。</li>
-              <li>混合检索 + 重排序；优化质量与延迟。</li>
-              <li>以日志/指标验证效果并迭代。</li>
-            </ul>
-            <div class="card-links">
-              <a href="#" rel="noopener noreferrer">Code</a>
-              <a href="#" rel="noopener noreferrer">Case Study</a>
+            <div class="star-section">
+              <h4>Situation（背景）</h4>
+              <p>需要有一款公益平台使得缺陷儿童可以通过减少接触社会的形式学习发展</p>
+              <h4>Task（任务）</h4>
+              <p>设计一个教育课程管理平台，管理员可上传修改课程及用户账号，用户可任意获取上传课程视频</p>
+              <h4>Action（行动）</h4>
+              <p>参与了前端系统架构的集成与开发。通过整合多模块页面代码，确保了组件间的状态一致性与代码可维护性。 构建了具备双角色身份验证流的动态登录 UI，根据验证凭证将管理员与普通用户自动重定向至各自独立的子系统 </p>
+              <h4>Result（结果）</h4>
+              <p>封装了五个高复用组件，最终项目提前 1 周交付，并被选为课程演示范例</p>
             </div>
-            <div class="tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Vector Search</span
-              ><span class="tag">LLM</span>
+            <div class="tech-tags">
+              <button class="tag-btn">JavaScript</button>
+              <button class="tag-btn">css</button>
+              <button class="tag-btn">Wechat DevTools</button>
+              <button class="tag-btn">UI/UX design</button>
             </div>
           </article>
-
           <article class="panel card">
             <header class="card-head">
-              <h3>实习：XXX 公司 · 软件工程</h3>
-              <p class="muted">方向：服务端 / 全栈 · 20XX</p>
+              <h3>本科毕业设计项目：基于深度学习的图像增强 </h3>
+              <p class="muted">角色：算法研究及落地</p>
             </header>
-            <ul class="bullets">
-              <li>交付核心业务功能模块；引入测试与质量门禁。</li>
-              <li>定位性能瓶颈并优化关键接口延迟。</li>
-              <li>跨团队协作推动需求闭环。</li>
-            </ul>
-            <div class="card-links">
-              <a href="#" rel="noopener noreferrer">Overview</a>
-              <a href="#" rel="noopener noreferrer">Demo</a>
+            <div class="star-section">
+              <h4>Situation（背景）</h4>
+              <p>深度学习模型与计算机视觉技术井喷式发展</p>
+              <h4>Task（任务）</h4>
+              <p>将前沿深度学习模型及损失函数应用到低阶/高阶图像修复任务</p>
+              <h4>Action（行动）</h4>
+              <p>构建了一个包含 2234 张 RAW 图像的高质量数据集，csv包含所有相机硬件参数信息（感光度、快门速度、光圈）；针对图像未知的复杂噪声问题 ，复现 SwinIR (Transformer) 架构并优化自注意力机制以提取全局特征 。自主研发轻量化 CNN 噪声预测器实现参数自动估计。DeepHomography 损失函数校正几何畸变。修改数据集，将视频改为正常及几何畸变图像对，通过微调损失函数和超参数来提高模型收敛性，从而有效地纠正透视失真 </p>
+              <h4>Result（结果）</h4>
+              <p>降噪在数据集上实现31.7 dB PSNR，较常见模型降低了0.1，透视失真恢复肉眼可见</p>
             </div>
-            <div class="tags">
-              <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Observability</span>
+            <div class="tech-tags">
+              <button class="tag-btn">Google Colab</button>
+              <button class="tag-btn">PyTorch</button>
+              <button class="tag-btn">OpenCV</button>
+              <button class="tag-btn">SwinIR</button>
+              <button class="tag-btn">DeepHomography</button>
+            </div>
+          </article>
+          <article class="panel card">
+            <header class="card-head">
+              <h3>实习：中国联通山西分公司</h3>
+              <p class="muted">角色：数据分析实习生 · 2023</p>
+            </header>
+            <div class="star-section">
+              <h4>Situation（背景）</h4>
+              <p>多媒体部门下管理系统用户数据</p>
+              <h4>Task（任务）</h4>
+              <p>通过内部数据管理系统管理用户数据</p>
+              <h4>Action（行动）</h4>
+              <p>使用 MySQL 来管理并查询大规模用户数据集，以确保数据的完整性，从而便于进行业务分析和潜在的预测建模。通过 GitHub 快速掌握数据库优化技术，以满足实际客户的数据需求</p>
+              <h4>Result（结果）</h4>
+              <p>设计了数据变更前后的校验逻辑，成功拦截并修正了原始 txt 需求中约 2% 的格式错误数据（如手机号格式错误、重复录入等）</p>
+            </div>
+            <div class="tech-tags">
+              <button class="tag-btn">MySQL</button>
+              <button class="tag-btn">GitHub</button>
+            </div>
+          </article>
+          <article class="panel card">
+            <header class="card-head">
+              <h3>实习：北京农林科学院—数据科学与农业经济研究所</h3>
+              <p class="muted">角色：预测农作物生长曲线深度学习大模型实习生 · 2024</p>
+            </header>
+            <div class="star-section">
+              <h4>Situation（背景）</h4>
+              <p>参与“农作物生长曲线预测大模型”研发项目，旨在利用深度学习技术对农业生产进行精准建模</p>
+              <h4>Task（任务）</h4>
+              <p>负责构建高质量的基础训练数据集，并进行前沿算法的技术调研，为模型架构的选择提供学术支持</p>
+              <h4>Action（行动）</h4>
+              <p>使用 X-AnyLabeling 对生菜、黄瓜叶片及食用菌图像进行目标检测标注 (Bounding Box)，针对农业 AI 模型因数据稀疏导致的过拟合问题 ，利用 Python 开发自动化增强引擎，集成高斯模糊、仿射变换等技术  </p>
+              <h4>Result（结果）</h4>
+              <p>精确提取农作物像素级边框并生成标准坐标信息,将核心数据集规模扩大了 16 倍，以增强模型的泛化能力</p>
+            </div>
+            <div class="tech-tags">
+              <button class="tag-btn">Python</button>
+              <button class="tag-btn">OpenCV</button>
+              <button class="tag-btn">X-AnyLabeling</button>
             </div>
           </article>
         </div>
@@ -359,7 +407,6 @@
       <footer class="site-footer">
         <div class="footer-inner">
           <p>© <span id="year"></span> Shaoqi Zhang · AI/Software Developer</p>
-          <p class="muted">内容与风格分离：你只需要改 `styles.css` 即可换整站气质。</p>
         </div>
       </footer>
     </main>
