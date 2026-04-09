@@ -12,6 +12,7 @@
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
+    <canvas id="dotfield" aria-hidden="true"></canvas>
 
     <header class="site-header" id="top">
       <div class="container header-inner">
@@ -94,7 +95,7 @@
 
       <section id="education" aria-labelledby="edu-title">
         <header class="section-head">
-          <h2 id="edu-title">学历/Education</h2>
+          <h2 id="edu-title">学习经历/Education</h2>
           <p>学校/专业/时间/课程。</p>
         </header>
         <article class="panel timeline-item">
@@ -243,7 +244,7 @@
         </div>
 
         <div class="panel demos">
-          <h3>Demo 展示</h3>
+          <h2 class="panel-title">Demo 展示</h2>
           <div class="demo-container">
             <h3>硕士毕业项目演示：AI 舞蹈评分系统/RoboCoach Dance</h3>
             <iframe 
@@ -257,54 +258,16 @@
         </div>
       </section>
 
-      <section id="blog" aria-labelledby="blog-title">
+      <section id="blog" aria-labelledby="blog-title" class="blog-section">
         <header class="section-head">
           <h2 id="blog-title">技术学习博客</h2>
           <p>把学习写成可复用的工程经验：清单、权衡、复盘。</p>
         </header>
-        <div class="panel">
-          <ol class="post-list" id="blog-list">
-            <!-- JS will auto-inject blog list here -->
+        <div class="blog-frame">
+          <ol class="plog-list" id="plog-list">
+            <!-- JS will append plogs here -->
           </ol>
         </div>
-        <script>
-          // 直接把根目录 blog 文件夹下的 md 文档都展示出来（需要服务端允许列目录）
-          async function fetchBlogs() {
-            // 这里只适用于目录可被列出的服务器，GitHub Pages 不支持此方法
-            try {
-              const resp = await fetch('./posts/');
-              if (!resp.ok) throw new Error("无法读取 blog 目录");
-              const text = await resp.text();
-              // 简单解析 HTML directory listing
-              const reg = /<a href="([^"]+\.md)"/g;
-              let match;
-              const files = [];
-              while ((match = reg.exec(text)) !== null) {
-                files.push(match[1]);
-              }
-              if (files.length === 0) {
-                document.getElementById('blog-list').innerHTML = "<li>目录下暂无 md 博客。</li>";
-                return;
-              }
-              // 默认不排序；如有命名规范(如时间戳/编号前缀)可改进
-              const list = document.getElementById('blog-list');
-              list.innerHTML = "";
-              files.forEach(file => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = `./posts/${file}`;
-                a.textContent = file;
-                a.rel = "noopener noreferrer";
-                a.target = "_blank";
-                li.appendChild(a);
-                list.appendChild(li);
-              });
-            } catch (e) {
-              document.getElementById('blog-list').innerHTML = "<li>无法加载 blog 目录内容。</li>";
-            }
-          }
-          fetchBlogs();
-        </script>
       </section>
 
       <section id="art" aria-labelledby="art-title">
@@ -414,5 +377,19 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <!-- Markdown 渲染（CDN） -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" crossorigin="anonymous"></script>
+    <script src="dotfield.js"></script>
+    <script src="plog.js"></script>
+
+    <!-- PLOG 弹窗：放到 body 最底层作为顶层浮层（不受任何容器影响） -->
+    <div id="plog-modal" class="plog-modal" aria-hidden="true">
+      <div class="plog-modal-inner" role="dialog" aria-modal="true" aria-labelledby="plog-modal-title">
+        <button id="plog-close-modal" class="plog-close" type="button" aria-label="关闭">&times;</button>
+        <h4 id="plog-modal-title" class="plog-modal-title"></h4>
+        <div id="plog-modal-content" class="plog-modal-content"></div>
+      </div>
+    </div>
   </body>
 </html>
